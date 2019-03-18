@@ -4,10 +4,10 @@ let sum = a % 7;
 let answer = "";
 
   if (sum === 0) {
-    answer = "7 a factor of 864,197,523";
+    answer = "7 is a factor of 864,197,523";
   } else 
   {
-    answer = "7 not a factor of 864,197,523";
+    answer = "7 is not a factor of 864,197,523";
   }
 
 console.log(answer);

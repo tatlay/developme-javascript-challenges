@@ -14,4 +14,4 @@ let oldConcat = function (a, b) {
 console.log(concat("fish", "sticks")); // "fish sticks"
 console.log(concat("hello", "world")); // "hello world"
 
-console.log(oldConcat("Old", "School")); // "fish sticks"
+console.log(oldConcat("Old", "School")); // "Old School"

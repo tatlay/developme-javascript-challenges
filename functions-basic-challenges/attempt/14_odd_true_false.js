@@ -4,6 +4,8 @@
 // Write it so it uses the odd function
 
 
+let even = values => values % 3 === 1 ? false:true;
+//changing the 3 to 1 and === to !==. 
 
 
 console.log(even(1)); // false

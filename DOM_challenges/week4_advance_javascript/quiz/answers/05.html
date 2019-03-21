@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Browser Challenge 5</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Search Engine</h1>
+        </div>
+        
+        <p>Your favourite search engine:</p>
+
+        <div id="links" class="list-group">
+            <a class="list-group-item" href="http://google.com">Google</a>
+            <a class="list-group-item" href="http://yahoo.com">Yahoo</a>
+            <a class="list-group-item" href="http://bing.com">Bing</a>
+            <a class="list-group-item" href="http://duckduckgo.com">DuckDuckGo</a>
+        </div>
+
+        <p class="well">You selected: <strong id="output">none selected</strong></p>
+
+        <script>
+            (d => {
+                let links = d.getElementById("links");
+                let output = d.getElementById("output");
+
+                links.addEventListener("click", e => {
+                    e.preventDefault();
+
+                    let clicked = e.target;
+
+                    if (clicked.tagName === "A") {
+                        let name = clicked.textContent;
+                        output.textContent = name;
+                    }
+                });
+            })(document);
+        </script>
+    </body>
+</html>

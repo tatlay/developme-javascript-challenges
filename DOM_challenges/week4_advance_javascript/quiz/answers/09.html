@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Animate</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+            #block {
+                height: 250px;
+                position: absolute;
+                width: 250px;
+            }
+
+            #canvas {
+                position: relative;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Animate</h1>
+        </div>
+
+        <div id="canvas">
+            <img id="block" src="http://68.media.tumblr.com/5d933dbea55d887f28bb467c67bcb356/tumblr_mojk1em3ew1r4xjo2o1_250.gif" />
+        </div>
+
+        <script>
+            (d => {
+                const speed = 500;
+
+                let img = d.getElementById("block");
+                let width = d.getElementById("canvas").offsetWidth - img.offsetWidth;
+
+                let left = 0; // keep track of left position
+                let velocity = speed;
+
+                let last = 0; // keep track of last time
+
+                let loop = time => {
+                    let dt = time - last;
+                    last = time;
+
+                    // add velocity to left
+                    // will go down if velocity is negative
+                    left += velocity * (dt / 1000);
+
+                    // if left goes over width or under 0 reverse direction
+                    if (left > width) {
+                        velocity = -speed;
+                        left = width;
+                    } else if (left < 0) {
+                        velocity = speed;
+                        left = 0;
+                    }
+
+                    // update css
+                    img.style.left = left + "px";
+
+                    // run the loop again
+                    requestAnimationFrame(loop);
+                };
+
+                loop(0);
+            })(document);
+        </script>
+    </body>
+</html>

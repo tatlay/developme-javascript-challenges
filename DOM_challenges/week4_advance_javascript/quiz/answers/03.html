@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Browser Challenge 3</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body class="container">
+
+        <div class="page-header">
+            <h1>Totalizer</h1>
+        </div>
+
+        <input id="input" type="number" />
+        <button id="button" class="btn btn-primary">Add</button>
+
+        <div class="jumbotron">
+            <h1 id="total">0</h1>
+        </div>
+
+        <script>
+            (d => {
+                let total = 0;
+                let input = d.getElementById("input");
+                let button = d.getElementById("button");
+                let output = d.getElementById("total");
+
+                button.addEventListener("click", () => {
+                    let val = +input.value;
+                    total = total + val;
+                    output.textContent = total;
+                });
+            })(document);
+        </script>
+    </body>
+</html>

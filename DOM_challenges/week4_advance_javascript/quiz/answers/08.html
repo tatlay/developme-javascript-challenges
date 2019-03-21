@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Browser Challenge 7</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <style>
+            .die {
+                display: inline-block;
+                border: 1px solid #000;
+                border-radius: 10px;
+                padding: 20px 30px;
+                font-size: 24px;
+            }
+
+            .dice {
+                margin-top: 1em;
+            }
+
+            button {
+                margin: 1em 0;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Rollin' Rollin' Rollin'</h1>
+        </div>
+
+        <button id="roll" class="btn btn-primary">Roll the Dice!</button>
+        
+        <div class="dice">
+            <p class="die" id="first">?</p>
+            <p class="die" id="second">?</p>
+        </div>
+
+        <script>
+            (d => {
+                let random = () => Math.floor(Math.random() * 6) + 1;
+
+                let button = d.getElementById("roll");
+                let firstEl = d.getElementById("first");
+                let secondEl = d.getElementById("second");
+
+                button.addEventListener("click", () => {
+                    let first = random(); 
+                    let second = random(); 
+
+                    firstEl.textContent = first;
+                    secondEl.textContent = second;
+                });
+            })(document);
+        </script>
+    </body>
+</html>
